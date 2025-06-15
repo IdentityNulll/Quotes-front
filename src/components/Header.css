@@ -1,0 +1,150 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@font-face {
+    font-family: "Limelight";
+    src: url(../assets/Fonts/Limelight-Regular.ttf);
+}
+
+header {
+    background: #021014;
+    background: linear-gradient(90deg, rgba(2, 16, 20, 1) 0%, rgba(11, 36, 12, 1) 50%, rgba(13, 5, 41, 1) 100%);
+}
+
+.header-container {
+    display: flex;
+    height: 80px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+li,
+a {
+    text-decoration: none;
+    list-style: none;
+}
+
+button,
+input {
+    outline: none;
+    background: none;
+    border: none;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    color: #fff;
+    font-family: "Limelight";
+    font-size: 23px;
+}
+
+.logo img {
+    border-radius: 50%;
+}
+
+.create-btn {
+    padding: 10px 15px;
+    border-radius: 5px;
+    background: black;
+    color: #ccc;
+    z-index: 1;
+    cursor: pointer;
+    animation: 3s spin linear infinite;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    --angle:0deg;
+}
+
+.create-btn-container {
+    position: relative;
+    z-index: 0;
+}
+
+.create-btn::after,
+.create-btn::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(from var(--angle), #ff4d4d, #ffcc00, #33cc33, #00ccff, #3366ff, #cc33ff, #ff4d4d);
+    padding: 3px;
+    top: 50%;
+    right: 50%;
+    border-radius: 5px;
+    transform: translate(50%, -50%);
+}
+
+.create-btn::before {
+    filter: blur(1.5rem);
+    opacity: 0.8;
+}
+
+.input-wrapper {
+    --angle:0deg;
+    position: relative;
+    display: inline-block;
+    padding: 3px;
+    animation: spin 3s linear infinite;
+    animation-play-state: paused;
+}
+
+  .input-wrapper:focus-within {
+    animation-play-state: running;
+  }
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: true;
+}
+
+.input-wrapper::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: conic-gradient(from var(--angle), transparent 10%, #00D4FF);
+    z-index: 0;
+    border-radius: 8px;
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg
+    }
+
+    to {
+        --angle: 360deg
+    }
+}
+
+.author-input, .text-input {
+    padding: 10px 15px;
+    background: black;
+    border-radius: 8px;
+    color: #ccc;
+    position: relative;
+    z-index: 1;
+    border: none;
+}
+
+.author-input::placeholder,
+.text-input::placeholder {
+    color: #ccc;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
