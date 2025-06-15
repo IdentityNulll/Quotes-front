@@ -36,7 +36,7 @@ const Header = () => {
       <div className="header-container">
         <a className="logo" href="./Header.jsx">
           <img
-            src="Logo.jpg"
+            src="/Logo.jpg"
             alt="Logo"
             loading="lazy"
             width={40}
