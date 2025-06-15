@@ -64,6 +64,11 @@ input {
     animation: 3s spin linear infinite;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     --angle:0deg;
+    transition: 0.5s;
+}
+
+.create-btn:hover {
+    box-shadow: 1px 1px 5px 5px #00ccff;
 }
 
 .create-btn-container {

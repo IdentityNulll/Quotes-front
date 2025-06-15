@@ -1,0 +1,136 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@font-face {
+    font-family: "Limelight";
+    src: url(../assets/Fonts/Limelight-Regular.ttf);
+}
+@font-face {
+    font-family: "MerriWeather";
+    src: url(../assets/Fonts/Merriweather_24pt-Regular.ttf);
+}
+@font-face {
+    font-family: "Lora";
+    src: url(../assets/Fonts/Lora-Regular.ttf);
+}
+
+main{
+    background: #021014;
+    background: linear-gradient(90deg, rgba(2, 16, 20, 1) 0%, rgba(11, 36, 12, 1) 50%, rgba(13, 5, 41, 1) 100%);
+    width: 100%;
+    height: auto;
+}
+
+.main-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+.main-title h3 {
+  color: #C4A77D;
+  font-size: 36px;
+  font-family: "Lora", serif;
+  text-align: center;
+  padding: 40px 0 20px;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 8px rgba(196, 167, 125, 0.3);
+}
+
+/* Quotes container */
+.main-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 20px;
+}
+
+/* Individual quote box */
+.quote-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(196, 167, 125, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  color: #eee;
+  font-family: "MerriWeather", serif;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quote-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(196, 167, 125, 0.3);
+}
+
+.quote-text {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #f1f1f1;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.quote-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #b3b3b3;
+  font-family: "Arial", sans-serif;
+}
+
+.quote-author {
+  font-weight: bold;
+  color: #C4A77D;
+}
+
+.quote-buttons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.edit-btn, .delete-btn, .save-btn, .cancel-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  resize: none;
+}
+
+.edit-btn {
+  background-color: #2c3e50;
+  color: #fff;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.save-btn {
+  background-color: #27ae60;
+  color: #fff;
+}
+
+.cancel-btn {
+  background-color: #7f8c8d;
+  color: #fff;
+}
+
+.quote-edit-text,
+.quote-edit-author {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: #111;
+  color: #eee;
+}
