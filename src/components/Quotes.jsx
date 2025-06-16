@@ -21,9 +21,22 @@ const Quotes = () => {
   };
 
   const deleteQuote = async (id) => {
-    await fetch(`http://localhost:3000/api/quotes/${id}`, { method: "DELETE" });
-    setQuotes((prev) => prev.filter((q) => q._id !== id));
-  };
+  try {
+    const res = await fetch(`http://localhost:3000/api/quotes/${id}`, {
+      method: "DELETE",
+    });
+
+    if (res.ok) {
+      setQuotes((prev) => prev.filter((q) => q._id !== id));
+      toast.info("Quote deleted.");
+    } else {
+      toast.error("Failed to delete quote.");
+    }
+  } catch (err) {
+    console.error(err);
+    toast.error("An error occurred while deleting.");
+  }
+}
 
   const startEdit = (quote) => {
     setEditingId(quote._id);
