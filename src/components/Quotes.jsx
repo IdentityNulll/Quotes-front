@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Quotes.css";
+import 'react-toastify/dist/ReactToastify.css'
+import { toast } from "react-toastify";
 
 const Quotes = () => {
   const [quotes, setQuotes] = useState([]);
@@ -30,11 +32,24 @@ const Quotes = () => {
   };
 
   const saveEdit = async () => {
-    await fetch(`http://localhost:3000/api/quotes/${editingId}`, {
+  try {
+    const res = await fetch(`http://localhost:3000/api/quotes/${editingId}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text: editText, author: editAuthor }),
     });
+
+    if (res.ok) {
+      toast.success("Quote updated successfully!");
+      setEditingId(null);
+      fetchQuotes();
+    } else {
+      toast.error("Failed to update quote.");
+    }
+  } catch (err) {
+    console.error(err);
+    toast.error("An error occurred while updating.");
+  }
 
     setEditingId(null);
     fetchQuotes();

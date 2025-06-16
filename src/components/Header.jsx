@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "./Header.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Header = () => {
   const [text, setText] = useState("");
   const [author, setAuthor] = useState("");
 
   const handleSubmit = async () => {
-    if (!text.trim()) return alert("Enter a quote!");
+    if (!text.trim()) return toast.warn("Enter a quote!");
 
     try {
       const res = await fetch("http://localhost:3000/api/quotes", {
@@ -19,11 +21,11 @@ const Header = () => {
 
       if (res.ok) {
         const data = await res.json();
-        alert("Quote saved!", data);
+        toast.success("Quote Saved Successfully!", data);
         setText("");
         setAuthor("");
       } else {
-        alert("Failed to save quote");
+        toast.error("Failed to save quote");
       }
     } catch (err) {
       console.error(err);
@@ -69,13 +71,14 @@ const Header = () => {
         </div>
 
         <div className="create-btn-container">
-        <button className="create-btn" onClick={handleSubmit} tabIndex={3}>
+        <button className="create-btn" onClick={handleSubmit} tabIndex={3} >
           Create Quote
         </button>
         </div>
 
         
       </div>
+      <ToastContainer position="top-right" autoClose={1500} />
     </header>
   );
 };
