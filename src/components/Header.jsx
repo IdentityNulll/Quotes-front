@@ -36,7 +36,7 @@ const Header = () => {
   return (
     <header>
       <div className="header-container">
-        <a className="logo" href="./Header.jsx">
+        <a className="logo" href="#">
           <img
             src="/Logo.jpg"
             alt="Logo"
